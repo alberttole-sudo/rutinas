@@ -275,9 +275,39 @@ ol.steps b{color:var(--ink)}
 .wkbars span{font-family:var(--f-ui);font-size:11px;font-weight:700;color:var(--ink)}
 .insight{margin:12px 0 0;font-size:15px}
 .medals{display:flex;gap:8px;flex-wrap:wrap}
-.md{flex:none;width:46px;height:46px;border-radius:50%;border:1.5px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--f-display);font-size:18px;color:var(--muted);line-height:1}
-.md small{font-family:var(--f-ui);font-size:8px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-top:1px}
-.md.got{border:0;color:#3A2A0C;background:radial-gradient(circle at 35% 30%,#F4E2B4 0%,#DDB86C 55%,#A8854A 100%);box-shadow:0 2px 8px rgba(168,133,74,.35)}
+.medals{gap:6px}
+.md{position:relative;flex:none;width:40px;height:40px;border-radius:50%;border:1.5px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--f-display);font-size:17px;color:var(--muted);line-height:1;opacity:.75}
+.md small{font-family:var(--f-ui);font-size:7.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin-top:1px}
+.md.got{border:0;opacity:1;color:var(--mi,#3A2A0C);background:var(--mb);box-shadow:0 2px 8px var(--ms,rgba(0,0,0,.2)),inset 0 0 0 2px rgba(255,255,255,.25)}
+.md.got::after{content:"";position:absolute;inset:3px;border-radius:50%;border:1px solid rgba(255,255,255,.35)}
+.md.t0{--mb:radial-gradient(circle at 35% 30%,#F3CFA8 0%,#C88A55 55%,#8E5A2E 100%);--mi:#3B220E;--ms:rgba(142,90,46,.35)}
+.md.t1{--mb:radial-gradient(circle at 35% 30%,#FFFFFF 0%,#C9CED6 55%,#8B929E 100%);--mi:#2B3140;--ms:rgba(110,118,132,.35)}
+.md.t2{--mb:radial-gradient(circle at 35% 30%,#F8E7BC 0%,#DDB86C 55%,#A8854A 100%);--mi:#3A2A0C;--ms:rgba(168,133,74,.4)}
+.md.t3{--mb:radial-gradient(circle at 35% 30%,#FFFFFF 0%,#EAE3FA 35%,#BFD3EF 65%,#8B80BD 100%);--mi:#2E2A55;--ms:rgba(139,128,189,.45)}
+.md.t4{--mb:radial-gradient(circle at 35% 30%,#7FA6E8 0%,#2D5BB8 50%,#142C66 100%);--mi:#F2F5FC;--ms:rgba(45,91,184,.45)}
+.md.t5{--mb:radial-gradient(circle at 35% 30%,#2A3F75 0%,#13224A 60%,#0A1430 100%);--mi:#E9CF8F;--ms:rgba(210,182,126,.55)}
+.md.t5.got{box-shadow:0 2px 10px var(--ms),inset 0 0 0 2px #D2B67E}
+.md.t5.got::after{border-color:rgba(233,207,143,.55)}
+.md.t5.got{overflow:hidden}
+.md.t5.got::before{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,240,200,.45) 50%,transparent 60%);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%,55%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+.rec{display:inline-flex;align-items:center;gap:3px;font-family:var(--f-ui);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 45%,transparent);border-radius:99px;padding:1px 7px 1px 5px;margin-left:2px;vertical-align:1px}
+.rec svg{width:11px;height:11px}
+.tiles .rectile small::after{content:" · récord ahora";color:var(--gold);font-weight:700}
+.award{position:fixed;inset:0;z-index:55;background:rgba(6,12,26,.55);display:grid;place-items:center;padding:24px;animation:fadeIn .25s ease}
+.award .box{width:100%;max-width:320px;background:var(--surface);border-radius:24px;padding:28px 22px 20px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35);animation:awardIn .5s cubic-bezier(.2,1.4,.4,1)}
+.award .md{width:96px;height:96px;font-size:40px;margin:0 auto 14px}
+.award .md small{font-size:12px;margin-top:3px}
+.award .md.got::after{inset:6px}
+.award .trophy{width:88px;height:88px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;color:#3A2A0C;background:radial-gradient(circle at 35% 30%,#F8E7BC 0%,#DDB86C 55%,#A8854A 100%);box-shadow:0 4px 18px rgba(168,133,74,.45)}
+.award .trophy svg{width:44px;height:44px}
+.award .ey{font-family:var(--f-ui);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.award h2{font-family:var(--f-display);font-weight:400;font-size:32px;line-height:1.05;margin:6px 0 8px}
+.award p{margin:0 0 18px;color:var(--muted);font-size:15px}
+.award p b{color:var(--ink);font-weight:600}
+.award .btn{width:100%}
+@keyframes awardIn{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .mr{display:flex;align-items:center;gap:12px;width:100%;background:none;border:0;border-top:1px solid var(--line);padding:12px 0;text-align:left;flex-wrap:wrap}
 .mr:first-child{border-top:0;padding-top:0}
 .mr:last-child{padding-bottom:0}
@@ -531,6 +561,7 @@ const isRest = d => !!state.rest[d];
 const startOf = r => { let s = r.created || today(); for (const k in r.done) if (k < s && r.done[k] > 0) s = k; return s; };
 const ruleText = r => {
   const t = r.rule;
+  if (t.type === "free") return "Libre, sin objetivo";
   if (t.type === "weekly") return t.times+" "+(t.times===1?"vez":"veces")+" por semana";
   if (t.type === "days") {
     const d = (t.days||[]).slice().sort();
@@ -547,12 +578,15 @@ const isDue = (r,d) => r.rule.type === "daily" || (r.rule.type === "days" && (r.
 const weekCount = (r,d) => { const w = monday(d); let n = 0; for (let i=0;i<7;i++) if (ok(r, addDays(w,i))) n++; return n; };
 const pausedOn = (r,d) => (r.pauses||[]).some(p => d >= p.from && (!p.to || d <= p.to));
 const live = () => state.routines.filter(r => !r.archived);
+const isFree = r => r.rule.type === "free";
+const goalLive = () => live().filter(r => !isFree(r));
 const activeOn = d => live().filter(r => startOf(r) <= d && !pausedOn(r,d));
 const flameLvl = (r,n) => r.rule.type === "weekly" ? (n >= 12 ? 3 : n >= 4 ? 2 : n >= 2 ? 1 : 0) : (n >= 30 ? 3 : n >= 7 ? 2 : n >= 3 ? 1 : 0);
 const flame = (r,n,txt) => '<i class="flame f'+flameLvl(r,n)+'">'+icon("llama",14,2)+(txt||'')+'</i>';
 
 function periods(r, upto){
   const td = upto || today(), start = startOf(r), out = [];
+  if (isFree(r)) return out;
   if (r.rule.type === "weekly") {
     const X = r.rule.times || 1;
     for (let w = monday(start); w <= monday(td); w = addDays(w,7)) {
@@ -576,10 +610,10 @@ function periods(r, upto){
   return out;
 }
 function streaks(r){
-  const ps = periods(r); let cur = 0, best = 0, run = 0;
-  ps.forEach(p => { if (p.st === "ok") { run++; if (run > best) best = run; } else if (p.st === "fail") run = 0; });
+  const ps = periods(r); let cur = 0, best = 0, run = 0, prevBest = 0;
+  ps.forEach(p => { if (p.st === "ok") { run++; if (run > best) best = run; } else if (p.st === "fail") { if (run > prevBest) prevBest = run; run = 0; } });
   for (let i = ps.length-1; i >= 0; i--) { if (ps[i].st === "ok") cur++; else if (ps[i].st === "fail") break; }
-  return {cur, best};
+  return {cur, best, prevBest, last: ps.length ? ps[ps.length-1].key : ""};
 }
 function monthStats(r, m){
   const a = m+"-01", b = m+"-"+pad(lastDayOf(m)), td = today();
@@ -591,7 +625,15 @@ function monthStats(r, m){
 }
 const isPerfect = d => { const due = activeOn(d).filter(r => isDue(r,d)); return due.length > 0 && due.every(r => ok(r,d)); };
 const restUsed = m => Object.keys(state.rest).filter(k => ym(k) === m).length;
-const MEDALS = r => r.rule.type === "weekly" ? [4,12,26,52] : [7,30,100,365];
+const MEDAL_D = [[7,"7","días","Una semana"],[30,"30","días","Un mes"],[100,"100","días","Cien días"],[180,"6","meses","Medio año"],[270,"9","meses","Nueve meses"],[365,"1","año","Un año entero"]];
+const MEDAL_W = [[1,"1","sem","Primera semana"],[4,"1","mes","Un mes"],[14,"14","sem","Cien días"],[26,"6","meses","Medio año"],[39,"9","meses","Nueve meses"],[52,"1","año","Un año entero"]];
+const TIERS = ["bronce","plata","oro","platino","zafiro","leyenda"];
+const medalList = r => r.rule.type === "weekly" ? MEDAL_W : MEDAL_D;
+const MEDALS = r => medalList(r).map(x => x[0]);
+const medalInfo = (r,t) => { const i = MEDALS(r).indexOf(t), x = medalList(r)[i]; return {t, big:x[1], small:x[2], name:x[3], tier:i, tierName:TIERS[i]}; };
+const medalDisc = (r,t,got) => { const m = medalInfo(r,t); return '<span class="md t'+m.tier+(got?' got':'')+'" title="'+m.name+' · '+t+' '+unit(r,t)+' seguidos">'+m.big+'<small>'+m.small+'</small></span>'; };
+const CROWN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/></svg>';
+const isRecordNow = st => st.cur >= 3 && st.cur === st.best && st.cur > st.prevBest && st.prevBest > 0;
 
 /* ---------- navegación ---------- */
 const VIEWS = ["hoy","mes","rachas","ajustes","rutina"];
@@ -644,9 +686,15 @@ function toggleStep(r, d, id){
   render();
 }
 function afterDone(r, d, beforeBest){
+  if (isFree(r)) { const n = monthStats(r, ym(d)).count; toast(r.name+": "+n+" "+(n===1?"vez":"veces")+" este mes", {label:"Añadir nota", fn:() => openNote(r,d)}); return; }
   const st = streaks(r), m = MEDALS(r).find(t => beforeBest < t && st.best >= t);
   const note = {label:"Añadir nota", fn:() => openNote(r,d)};
-  if (m) { celebrate(); toast("¡Medalla! "+m+" "+unit(r,m)+" seguidos de «"+r.name+"»", note); return; }
+  const rec = st.prevBest >= 3 && st.cur === st.prevBest + 1 && st.cur === st.best;
+  const recKey = r.rule.type === "weekly" ? monday(d) : d;
+  const newRec = rec && r.recShown !== recKey + ":" + st.cur;
+  if (newRec) { r.recShown = recKey + ":" + st.cur; save(); }
+  if (m) { celebrate(); showAward(r, {medal:m, record:newRec ? st.prevBest : 0}); return; }
+  if (newRec) { celebrate(); showAward(r, {record:st.prevBest}); return; }
   if (r.rule.type === "weekly" && weekCount(r,d) === r.rule.times) { celebrate(); toast("¡Objetivo semanal de «"+r.name+"» cumplido!", note); return; }
   if (isDue(r,d) && isPerfect(d)) { celebrate(); toast(d === today() ? "¡Día perfecto! Todas tus rutinas de hoy, hechas" : "Día perfecto el "+shortDate(d), note); return; }
   toast(d === today() && st.cur > 1 ? r.name+": racha de "+st.cur+" "+unit(r,st.cur) : "Hecha: "+r.name, note);
@@ -663,9 +711,10 @@ function card(r, d, rest){
   const sd = r.stepsDone[d] || [];
   if (g > 1) info.push('<span class="qty">'+c+' de '+g+' '+esc(unitQ(r))+'</span>');
   if (hasSteps(r)) info.push('<span class="qty">'+(done ? r.steps.length : r.steps.filter(x => sd.includes(x.id)).length)+'/'+r.steps.length+' pasos</span>');
-  info.push(esc(ruleText(r)));
+  if (isFree(r)) { const n = monthStats(r, ym(d)).count; info.push('<span>Libre</span>', '<span>'+(n ? n+' '+(n===1?'vez':'veces')+' en '+MESES[+d.slice(5,7)-1] : 'Aún ninguna vez en '+MESES[+d.slice(5,7)-1])+'</span>'); }
+  else info.push(esc(ruleText(r)));
   if (r.rule.type === "weekly") { const n = weekCount(r,d), X = r.rule.times; info.push('<span class="dots" aria-label="'+n+' de '+X+' esta semana">'+Array.from({length:Math.max(X,n)}, (_,i) => '<i class="'+(i<n?'on':'')+'"></i>').join("")+'</span> '+n+'/'+X); }
-  if (st.cur) info.push(flame(r, st.cur, st.cur+' '+unit(r,st.cur)));
+  if (st.cur) info.push(flame(r, st.cur, st.cur+' '+unit(r,st.cur)) + (isRecordNow(st) ? '<span class="rec">'+CROWN+'Récord</span>' : ''));
   if (r.ex) info.push('<span class="tag">Ejemplo</span>');
   const note = r.notes[d] ? '<span class="note">«'+esc(r.notes[d])+'»</span>' : '';
   const steps = hasSteps(r) && !done && d <= today() ? '<ul class="steps-l">'+r.steps.map(x => '<li><button type="button" class="stp'+(sd.includes(x.id)?' on':'')+'" data-step="'+x.id+'" data-r="'+r.id+'"><span class="bx">'+CHECK+'</span><span>'+esc(x.text)+'</span></button></li>').join("")+'</ul>' : '';
@@ -724,7 +773,7 @@ const quoteFor = d => { const q = state.quotes.filter(x => x.trim()); if (!q.len
 function weekSummary(){
   const td = today(), w = addDays(monday(td),-7), e = addDays(w,6);
   if (state.sumSeen === monday(td)) return '';
-  const rs = live().filter(r => startOf(r) <= e); if (!rs.length) return '';
+  const rs = goalLive().filter(r => startOf(r) <= e); if (!rs.length) return '';
   let o = 0, f = 0, perfect = 0;
   rs.forEach(r => { const ps = periods(r, e).filter(p => r.rule.type === "weekly" ? p.key === w : (p.key >= w && p.key <= e)); o += ps.filter(p => p.st === "ok").length; f += ps.filter(p => p.st === "fail" || p.st === "pend").length; });
   for (let i=0;i<7;i++) if (isPerfect(addDays(w,i))) perfect++;
@@ -740,7 +789,8 @@ function weekSummary(){
 function renderToday(){
   const d = dayCursor, td = today(), dt = parse(d), act = activeOn(d);
   const due = act.filter(r => isDue(r,d) || (r.rule.type === "weekly" && (weekCount(r,d) < r.rule.times || ok(r,d) || cnt(r,d) > 0)));
-  const rest = act.filter(r => !due.includes(r));
+  const free = act.filter(isFree);
+  const rest = act.filter(r => !due.includes(r) && !isFree(r));
   const paused = live().filter(r => pausedOn(r,d) && startOf(r) <= d);
   const dueDay = act.filter(r => isDue(r,d)), doneDay = dueDay.filter(r => ok(r,d)).length;
   const order = list => list.slice().sort((a,b) => ok(a,d) - ok(b,d));
@@ -763,13 +813,15 @@ function renderToday(){
   else {
     const pend = due.filter(r => !ok(r,d)).length;
     const grouped = due.some(r => r.time);
-    if (!due.length) h += '<div class="section-t"><span>'+(d===td?'Para hoy':'Para ese día')+'</span></div><div class="empty"><b>Día libre</b>No te toca ninguna rutina '+(d===td?'hoy':'ese día')+'.</div>';
+    if (!due.length && !free.length) h += '<div class="section-t"><span>'+(d===td?'Para hoy':'Para ese día')+'</span></div><div class="empty"><b>Día libre</b>No te toca ninguna rutina '+(d===td?'hoy':'ese día')+'.</div>';
+    else if (!due.length) {}
     else if (!grouped) h += '<div class="section-t"><span>'+(d===td?'Para hoy':'Para ese día')+'</span><small>'+pend+' pendiente'+(pend===1?'':'s')+'</small></div><ul class="list">'+order(due).map(r => card(r,d,false)).join("")+'</ul>';
     else TIMES.forEach(([k,label]) => {
       const g = due.filter(r => r.time === k); if (!g.length) return;
       const p = g.filter(r => !ok(r,d)).length;
       h += '<div class="section-t"><span class="slabel">'+(TIME_ICO[k]?icon(TIME_ICO[k],15,2):'')+label+'</span><small>'+(p ? p+' pendiente'+(p===1?'':'s') : 'Todo hecho')+'</small></div><ul class="list">'+order(g).map(r => card(r,d,false)).join("")+'</ul>';
     });
+    if (free.length) h += '<div class="section-t"><span>Cuando te apetezca</span><small>Sin racha ni prisa</small></div><ul class="list">'+free.slice().sort((a,b) => a.name.localeCompare(b.name,"es")).map(r => card(r,d,false)).join("")+'</ul>';
     if (rest.length) h += '<div class="section-t"><span>'+(d===td?'Hoy no toca':'Ese día no tocaba')+'</span><small>Puedes marcarlas igualmente</small></div><ul class="list">'+order(rest).map(r => card(r,d,true)).join("")+'</ul>';
     if (paused.length) h += '<div class="section-t"><span>En pausa</span><small>No rompen la racha</small></div><div class="paused">'+paused.map(r => '<button type="button" class="pchip" data-open="'+r.id+'" style="--c:'+r.color+'"><i></i>'+esc(r.name)+'</button>').join("")+'</div>';
     if (!isRest(d) && state.restMax > 0) { const left = Math.max(0, state.restMax - restUsed(ym(d))); h += '<div class="restbar"><button class="linkbtn" type="button" id="mkrest">'+(d===td?'Tomarme el día libre':'Marcar como día libre')+'</button><small style="font-family:var(--f-ui);font-size:12px;color:var(--muted)">'+(left===1?'Te queda 1 este mes':'Te quedan '+left+' este mes')+'</small></div>'; }
@@ -799,12 +851,12 @@ function renderMonth(){
   }
   cal += '</div>';
   const legend = '<div class="legend">'+live().map(r => '<span><i style="--c:'+r.color+'"></i>'+esc(r.name)+'</span>').join("")+'<span><i class="pf"></i>Día perfecto</span><span><i class="rs"></i>Día libre</span></div>';
-  const agg = live().map(r => monthStats(r,m)), o = agg.reduce((s,x) => s+x.ok, 0), f = agg.reduce((s,x) => s+x.fail, 0), rate = o+f ? Math.round(o/(o+f)*100) : null;
+  const agg = goalLive().map(r => monthStats(r,m)), o = agg.reduce((s,x) => s+x.ok, 0), f = agg.reduce((s,x) => s+x.fail, 0), rate = o+f ? Math.round(o/(o+f)*100) : null;
   let h = hero({
     eyebrow:(m===ym(td)?'Este mes · ':'')+m.slice(0,4),
     nav:'<button class="pill" type="button" id="mNow">Hoy</button><button class="icbtn" type="button" id="mPrev" aria-label="Mes anterior">'+AL+'</button><button class="icbtn" type="button" id="mNext" aria-label="Mes siguiente">'+AR+'</button>',
     title:cap(MESES[mi]),
-    sub:(rate===null?'Sin datos todavía':'<b>'+rate+' %</b> de cumplimiento')+' · '+agg.reduce((s,x) => s+x.count, 0)+' hechas',
+    sub:(rate===null?'Sin datos todavía':'<b>'+rate+' %</b> de cumplimiento')+' · '+live().reduce((s,r) => s+monthStats(r,m).count, 0)+' hechas',
     right:'<div class="statc" role="img" aria-label="'+perfect+' '+(perfect===1?'día perfecto':'días perfectos')+'"><b>'+perfect+'</b><small>'+(perfect===1?'Día<br>perfecto':'Días<br>perfectos')+'</small></div>'
   });
   h += banners();
@@ -812,7 +864,7 @@ function renderMonth(){
   if (ym(selDay) === m) {
     const act = activeOn(selDay);
     h += '<div class="section-t"><span>'+(selDay===td?'Hoy, ':'')+longDate(selDay)+'</span><small>'+(selDay>td?'Aún no ha llegado':isRest(selDay)?'Día libre':'Toca para marcar')+'</small></div>';
-    h += act.length ? '<ul class="list">'+act.map(r => card(r, selDay, !isDue(r,selDay) && r.rule.type !== "weekly")).join("")+'</ul>' : '<div class="empty"><b>Sin rutinas</b>Ese día aún no tenías rutinas.</div>';
+    h += act.length ? '<ul class="list">'+act.map(r => card(r, selDay, !isDue(r,selDay) && r.rule.type !== "weekly" && !isFree(r))).join("")+'</ul>' : '<div class="empty"><b>Sin rutinas</b>Ese día aún no tenías rutinas.</div>';
   }
   $view.innerHTML = h; bindBanners();
   if (selDay <= td) bindCards(selDay); else $view.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => openDetail(b.dataset.open)));
@@ -822,16 +874,38 @@ function renderMonth(){
   document.getElementById("mNow").addEventListener("click", () => { monthCursor = ym(today()); selDay = today(); render(); });
 }
 
+/* ---------- premio: medalla o récord ---------- */
+function showAward(r, o){
+  const old = document.querySelector(".award"); if (old) old.remove();
+  const st = streaks(r), n = st.cur, el = document.createElement("div");
+  el.className = "award"; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true");
+  let inner;
+  if (o.medal) {
+    const m = medalInfo(r, o.medal);
+    inner = '<div class="md t'+m.tier+' got">'+m.big+'<small>'+m.small+'</small></div>'
+      +'<div class="ey">Medalla de '+m.tierName+'</div><h2>'+m.name+'</h2>'
+      +'<p><b>'+o.medal+' '+unit(r,o.medal)+'</b> seguidos de «'+esc(r.name)+'».'+(o.record ? '<br>Y además es tu nuevo récord.' : '')+'</p>';
+  } else {
+    inner = '<div class="trophy">'+CROWN+'</div><div class="ey">Nuevo récord</div><h2>¡Enhorabuena!</h2>'
+      +'<p><b>'+n+' '+unit(r,n)+'</b> seguidos de «'+esc(r.name)+'».<br>Tu récord anterior era de '+o.record+' '+unit(r,o.record)+'.</p>';
+  }
+  el.innerHTML = '<div class="box">'+inner+'<button type="button" class="btn primary">¡Genial!</button></div>';
+  document.body.appendChild(el);
+  const close = () => el.remove();
+  el.addEventListener("click", e => { if (e.target === el || e.target.closest(".btn")) close(); });
+  el.querySelector(".btn").focus();
+}
+
 /* ---------- piezas del detalle ---------- */
 function medalsRow(r){
-  const st = streaks(r), u = r.rule.type === "weekly" ? "sem" : "días";
-  return '<div class="medals">'+MEDALS(r).map(t => '<span class="md'+(st.best >= t ? ' got' : '')+'" title="'+t+' '+unit(r,t)+' seguidos">'+t+'<small>'+u+'</small></span>').join("")+'</div>';
+  const st = streaks(r);
+  return '<div class="medals">'+MEDALS(r).map(t => medalDisc(r, t, st.best >= t)).join("")+'</div>';
 }
 function nextMedal(r){
   const st = streaks(r), t = MEDALS(r).find(x => st.best < x);
   if (!t) return "¡Todas las medallas conseguidas!";
   const left = t - st.cur;
-  return "Próxima: "+t+" "+unit(r,t)+" · "+(left===1 ? "te falta 1 "+unit(r,1) : "te faltan "+left+" "+unit(r,left))+" con tu racha actual";
+  return "Próxima: "+medalInfo(r,t).name+" ("+t+" "+unit(r,t)+") · "+(left===1 ? "te falta 1 "+unit(r,1) : "te faltan "+left+" "+unit(r,left))+" con tu racha actual";
 }
 function yearMap(r){
   const td = today(), end = monday(td), w0 = addDays(end, -52*7), cs = 11, gap = 2, L = 16, T = 14, start = startOf(r);
@@ -877,6 +951,18 @@ function deltaTxt(now, prev, label){
   return '<div class="cmp"><b class="'+(dlt>0?'good':'bad')+'">'+(dlt>0?'▲ ':'▼ ')+Math.abs(dlt)+' puntos</b> '+(dlt>0?'más':'menos')+' que en '+label+'.</div>';
 }
 
+/* ---------- detalle: rutina libre ---------- */
+function freeTiles(r, m, mi, pms){
+  const td = today(), ms = monthStats(r, m), total = Object.keys(r.done).filter(k => ok(r,k)).length;
+  let wk = 0; for (let i=0;i<7;i++) if (ok(r, addDays(monday(td), i))) wk++;
+  const pmName = MESES[(mi+11)%12];
+  return '<div class="tiles"><div class="hl"><small>'+cap(MESES[mi])+'</small><b>'+ms.count+'<span>'+(ms.count===1?'vez':'veces')+'</span></b></div>'
+    +'<div><small>Esta semana</small><b>'+wk+'<span>'+(wk===1?'vez':'veces')+'</span></b></div>'
+    +'<div><small>'+cap(pmName)+'</small><b>'+pms.count+'<span>'+(pms.count===1?'vez':'veces')+'</span></b></div>'
+    +'<div><small>En total</small><b>'+total+'<span>'+(total===1?'vez':'veces')+'</span></b></div></div>'
+    +'<p class="hint" style="margin-top:10px">Rutina libre: no tiene racha, no sale como pendiente y no cuenta para los días perfectos ni el cumplimiento.</p>';
+}
+
 /* ---------- detalle de una rutina ---------- */
 function renderDetail(){
   const r = state.routines.find(x => x.id === detailId); if (!r) { go("hoy"); return; }
@@ -914,17 +1000,18 @@ function renderDetail(){
     eyebrow:esc(ruleText(r))+(goalOf(r)>1?' · '+goalOf(r)+' '+esc(unitQ(r)):'')+timeTxt,
     pre:'<span class="bigic">'+icon(r.icon)+'</span>',
     title:esc(r.name)+status,
-    sub:(st.cur ? flame(r, st.cur, '<b>'+st.cur+' '+unit(r,st.cur)+'</b>')+' de racha' : 'Sin racha ahora mismo')+(hasSteps(r)?' · '+r.steps.length+' pasos':'')+'<br>Desde el '+shortDate(start),
+    sub:(isFree(r) ? 'Sin racha ni objetivo: la marcas cuando la haces' : st.cur ? flame(r, st.cur, '<b>'+st.cur+' '+unit(r,st.cur)+'</b>')+' de racha' : 'Sin racha ahora mismo')+(hasSteps(r)?' · '+r.steps.length+' pasos':'')+'<br>Desde el '+shortDate(start),
     after:'<div class="hactions"><button class="btn-h" type="button" id="edit">Editar</button>'+(r.archived?'':'<button class="btn-h" type="button" id="pause">'+(paused?'Reanudar':'Pausar')+'</button>')+'<button class="btn-h" type="button" id="arch">'+(r.archived?'Recuperar':'Archivar')+'</button></div>'
   })
     +(paused && !r.archived ? '<div class="banner"><span><b>En pausa</b> desde el '+shortDate(r.pauses[r.pauses.length-1].from)+'. No aparece en Hoy y no rompe su racha.</span><button type="button" id="pause2">Reanudar</button></div>' : '')
     +(r.archived ? '<div class="banner"><span><b>Archivada.</b> Conservas su historial y sus medallas, pero ya no aparece en tus listas.</span><button type="button" id="arch2">Recuperar</button></div>' : '')
-    +'<div class="tiles"><div class="hl"><small>Racha actual</small><b>'+st.cur+'<span>'+u(st.cur)+'</span></b></div>'
-    +'<div><small>Mejor racha</small><b>'+st.best+'<span>'+u(st.best)+'</span></b></div>'
+    +(isFree(r) ? freeTiles(r, m, mi, pms)
+    : '<div class="tiles"><div class="hl"><small>Racha actual</small><b>'+st.cur+'<span>'+u(st.cur)+'</span></b></div>'
+    +'<div'+(isRecordNow(st)?' class="rectile"':'')+'><small>Mejor racha</small><b>'+st.best+'<span>'+u(st.best)+'</span></b></div>'
     +'<div><small>'+cap(MESES[mi])+'</small><b>'+ms.count+'<span>'+(ms.count===1?'vez':'veces')+'</span></b></div>'
     +'<div><small>Cumplimiento</small><b>'+(ms.rate===null?'—':ms.rate+'<span>%</span>')+'</b></div></div>'
     + deltaTxt(ms.rate, pms.rate, MESES[+pm.slice(5)-1])
-    +'<div class="section-t"><span>Medallas</span><small>Por rachas seguidas</small></div><div class="panel" style="--c:'+r.color+'">'+medalsRow(r)+'<p class="hint" style="margin-top:10px">'+nextMedal(r)+'</p></div>'
+    +'<div class="section-t"><span>Medallas</span><small>Por rachas seguidas</small></div><div class="panel" style="--c:'+r.color+'">'+medalsRow(r)+'<p class="hint" style="margin-top:10px">'+nextMedal(r)+'</p></div>')
     +'<div class="section-t"><span>Calendario</span><small>Toca un día para marcarlo</small></div>'
     +'<div class="panel" style="--c:'+r.color+'"><div class="mhead"><h3>'+MESES[mi]+' '+m.slice(0,4)+'</h3><button class="icbtn" type="button" id="cPrev" aria-label="Mes anterior">'+AL+'</button><button class="icbtn" type="button" id="cNext" aria-label="Mes siguiente">'+AR+'</button></div>'+cal
     +'<div class="legend"><span><i></i>Hecha</span>'+(weekly?'<span>Sem: veces de la semana</span>':'<span><i style="background:none;border:1px dashed var(--muted)"></i>No hecha</span>')+'<span><i class="rs"></i>Libre</span><span><i style="background:var(--gold);width:6px;height:6px"></i>Con nota</span></div></div>'
@@ -963,7 +1050,7 @@ function renderDetail(){
 
 /* ---------- vista Rachas ---------- */
 function renderStreaks(){
-  const td = today(), m = ym(td), pm = addMonths(m,-1), rs = live().map(r => ({r, st:streaks(r), ms:monthStats(r,m), pms:monthStats(r,pm)}));
+  const td = today(), m = ym(td), pm = addMonths(m,-1), frees = live().filter(isFree), rs = goalLive().map(r => ({r, st:streaks(r), ms:monthStats(r,m), pms:monthStats(r,pm)}));
   let perfect = 0, run = 0, d = td;
   for (let i=1;i<=parse(td).getDate();i++) if (isPerfect(m+"-"+pad(i))) perfect++;
   if (!isPerfect(td)) d = addDays(td,-1);
@@ -995,6 +1082,8 @@ function renderStreaks(){
       const dl = x.ms.rate !== null && x.pms.rate !== null ? x.ms.rate - x.pms.rate : null;
       return '<div class="rate" style="--c:'+x.r.color+'"><span class="dot"></span><span class="nm">'+esc(x.r.name)+'</span><span class="pc">'+(x.ms.rate===null?'—':x.ms.rate+' %')+(dl ? '<span class="dl '+(dl>0?'good':'bad')+'">'+(dl>0?'▲':'▼')+Math.abs(dl)+'</span>' : '')+'</span><span class="meter"><i style="width:'+(x.ms.rate||0)+'%"></i></span><small>'+x.ms.count+' '+(x.ms.count===1?'vez':'veces')+' este mes</small></div>';
     }).join("") + '</div>';
+  if (frees.length) h += '<div class="section-t"><span>Libres</span><small>Veces en '+MESES[+m.slice(5)-1]+'</small></div><div class="panel rank">'
+    + frees.map(r => { const n = monthStats(r,m).count, p = monthStats(r,pm).count; return '<button type="button" class="rk" data-open="'+r.id+'" style="--c:'+r.color+'"><span class="ic">'+icon(r.icon)+'</span><span class="n">'+esc(r.name)+'<small>'+p+' '+(p===1?'vez':'veces')+' en '+MESES[+pm.slice(5)-1]+'</small></span><span class="v">'+n+'<span>'+(n===1?'vez':'veces')+'</span></span></button>'; }).join("") + '</div>';
   $view.innerHTML = h; bindBanners(); animateRing();
   $view.querySelectorAll("[data-open]").forEach(b => b.addEventListener("click", () => openDetail(b.dataset.open)));
 }
@@ -1098,11 +1187,12 @@ function openRoutine(r){
     $sheet.innerHTML = '<div class="scrim" id="scrim"><form class="sheet" id="form" role="dialog" aria-modal="true" aria-labelledby="sT" novalidate style="--c:'+f.color+'">'
       +'<div class="grab"></div><h2 id="sT">'+(editing?'Editar rutina':'Nueva rutina')+'</h2>'
       +'<div class="field"><label for="rName">Nombre</label><input type="text" id="rName" maxlength="40" autocomplete="off" placeholder="Rutina skincare" value="'+esc(f.name)+'"></div><div class="err" id="nErr" hidden>Ponle un nombre a la rutina.</div>'
-      +'<div class="field"><span class="lbl">¿Cada cuánto?</span><div class="seg" role="radiogroup" aria-label="Frecuencia">'
-        +[["daily","Cada día"],["days","Días concretos"],["weekly","Veces/semana"]].map(([v,l]) => '<input type="radio" name="rType" id="t-'+v+'" value="'+v+'"'+(f.type===v?' checked':'')+'><label for="t-'+v+'">'+l+'</label>').join("")+'</div>'
+      +'<div class="field"><span class="lbl">¿Cada cuánto?</span><div class="seg four" role="radiogroup" aria-label="Frecuencia">'
+        +[["daily","Cada día"],["days","Días fijos"],["weekly","x/semana"],["free","Libre"]].map(([v,l]) => '<input type="radio" name="rType" id="t-'+v+'" value="'+v+'"'+(f.type===v?' checked':'')+'><label for="t-'+v+'">'+l+'</label>').join("")+'</div>'
         +(f.type==="days" ? '<div class="wdays" style="margin-top:10px">'+WD.map((w,i) => '<input type="checkbox" id="wd-'+i+'" value="'+i+'"'+(f.days.includes(i)?' checked':'')+'><label for="wd-'+i+'" title="'+WDL[i]+'">'+w+'</label>').join("")+'</div><p class="hint">Solo cuentan para la racha los días elegidos.</p>' : '')
         +(f.type==="weekly" ? '<div class="stepper" style="margin-top:10px"><button type="button" id="tMinus" aria-label="Menos">−</button><b>'+f.times+'</b><button type="button" id="tPlus" aria-label="Más">+</button><span>'+(f.times===1?'vez':'veces')+' por semana</span></div><p class="hint">La racha cuenta semanas seguidas cumpliendo el objetivo, de lunes a domingo.</p>' : '')
         +(f.type==="daily" ? '<p class="hint">La racha cuenta días seguidos.</p>' : '')
+        +(f.type==="free" ? '<p class="hint">Sin objetivo ni racha: la marcas los días que la haces y queda en tu calendario. Nunca sale como pendiente.</p>' : '')
       +'</div>'
       +'<div class="field"><span class="lbl">¿Cuándo?</span><div class="seg four" role="radiogroup" aria-label="Momento del día">'
         +[["","Cualquiera"],["manana","Mañana"],["tarde","Tarde"],["noche","Noche"]].map(([v,l]) => '<input type="radio" name="rTime" id="h-'+(v||"any")+'" value="'+v+'"'+(f.time===v?' checked':'')+'><label for="h-'+(v||"any")+'">'+l+'</label>').join("")+'</div></div>'
@@ -1140,7 +1230,7 @@ function openRoutine(r){
       e.preventDefault();
       const name = f.name.trim(); if (!name) { document.getElementById("nErr").hidden = false; nm.focus(); return; }
       if (f.type === "days" && !f.days.length) { toast("Elige al menos un día de la semana"); return; }
-      const rule = f.type === "weekly" ? {type:"weekly", times:f.times} : f.type === "days" ? {type:"days", days:f.days.slice().sort()} : {type:"daily"};
+      const rule = f.type === "free" ? {type:"free"} : f.type === "weekly" ? {type:"weekly", times:f.times} : f.type === "days" ? {type:"days", days:f.days.slice().sort()} : {type:"daily"};
       const steps = f.goal === 1 ? f.steps.map(x => ({id:x.id, text:x.text.trim()})).filter(x => x.text) : [];
       const data = {name, icon:f.icon, color:f.color, rule, time:f.time, goal:f.goal, unit:f.goal > 1 ? f.unit.trim() : "", steps};
       if (editing) { Object.assign(r, data); delete r.ex; }
